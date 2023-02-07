@@ -1,4 +1,4 @@
-from pytube import Youtube
+from pytube import YouTube
 
 def printDowloadVideo():
     global yt
@@ -8,7 +8,7 @@ link:str = input("input link here: ")
 #Input a path 
 path = ''       
 
-yt = Youtube(link)
+yt = YouTube(link)
 stream = yt.strems
 while(True):
     option = input('Press...'+
