@@ -1,33 +1,33 @@
 from pytube import YouTube
 
-def printDowloadVideo():
-    global yt
-    print('dowloading' + yt.title)
-
 #Input a path using '/'
-path = ''       
+path = './media'       
 option:str = '' 
 while(option != 'exit'):
+    option = input('Type...'+
+    '\n1 - To download a video'+
+    '\n2 - To dowload a audio\n'+
+    'or \'exit\' to leave program \n')
+
+    if option == 'exit':
+        print('Bye!!!!')
+        break
+    
     link:str = input("input link here: ")
     yt = YouTube(link)
     stream = yt.streams
 
-    option = input('Type...'+
-    '\n1 - To download a video'+
-    '\n2 - To dowload a audio\n'+
-    'or \'exit\' to leave program ')
 
-    if option != '1' and option != '2' or 'exit':
+    if option != '1' and option != '2':
         print('select a valid option')
         
-    
     elif option =="1":
-        printDowloadVideo
+        print('dowloading ' + yt.title)
         stream = yt.streams.get_highest_resolution()
-        #Input a path
         stream.download(output_path= path)
         print('download complete')
     else:
-        printDowloadVideo
+        print('dowloading ' + yt.title)
         stream = yt.streams.get_audio_only('mp4')
         stream.download(output_path= path)
+        print('download complete')
