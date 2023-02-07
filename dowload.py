@@ -6,7 +6,7 @@ option:str = ''
 while(option != 'exit'):
     option = input('Type...'+
     '\n1 - To download a video'+
-    '\n2 - To dowload anaudio\n'+
+    '\n2 - To dowload an audio\n'+
     'or \'exit\' to leave program \n')
 
     if option == 'exit':
