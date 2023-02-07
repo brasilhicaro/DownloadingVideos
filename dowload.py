@@ -4,29 +4,30 @@ def printDowloadVideo():
     global yt
     print('dowloading' + yt.title)
 
-link:str = input("input link here: ")
-#Input a path 
+#Input a path using '/'
 path = ''       
+option:str = '' 
+while(option != 'exit'):
+    link:str = input("input link here: ")
+    yt = YouTube(link)
+    stream = yt.streams
 
-yt = YouTube(link)
-stream = yt.strems
-while(True):
-    option = input('Press...'+
-    '1 - To download a video'+
-    '2 - To dowload a audio')
+    option = input('Type...'+
+    '\n1 - To download a video'+
+    '\n2 - To dowload a audio\n'+
+    'or \'exit\' to leave program ')
 
-    if option != '1' and option != '2':
+    if option != '1' and option != '2' or 'exit':
         print('select a valid option')
         
     
     elif option =="1":
         printDowloadVideo
-        stream = yt.stream.get_highest_resolution()
+        stream = yt.streams.get_highest_resolution()
         #Input a path
-        stream.dowload(output_path= path)
-        break
+        stream.download(output_path= path)
+        print('download complete')
     else:
         printDowloadVideo
-        stream = yt.stream.get_audio_only('mp4')
+        stream = yt.streams.get_audio_only('mp4')
         stream.download(output_path= path)
-        break
